@@ -163,41 +163,23 @@ const Index = () => {
                 </p>
 
                 <div className="border-t pt-6 mb-6">
-                  <h4 className="text-xl font-semibold mb-4">Список покупок</h4>
-                  <div className="grid md:grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="font-semibold mb-2">Для теста:</p>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• Мука пшеничная — 500 г</li>
-                        <li>• Масло сливочное — 250 г</li>
-                        <li>• Яйца — 2 шт</li>
-                        <li>• Сахар — 100 г</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-2">Для начинок:</p>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• Яблоки — 3 шт</li>
-                        <li>• Брусника — 200 г</li>
-                        <li>• Вишня — 200 г</li>
-                        <li>• Творог — 300 г</li>
-                        <li>• Чёрная смородина — 150 г</li>
-                        <li>• Черника — 150 г</li>
-                        <li>• Шоколад тёмный — 200 г</li>
-                        <li>• Грецкие орехи — 100 г</li>
-                      </ul>
-                    </div>
+                  <h4 className="text-xl font-semibold mb-4">Детали заказа</h4>
+                  <div className="space-y-3 text-gray-600">
+                    <p>• Время приготовления: 45-60 минут</p>
+                    <p>• Количество порций: 5 тарталеток</p>
+                    <p>• Стоимость: 1 850 ₽</p>
+                    <p>• Доставка по Москве: бесплатно при заказе от 1 500 ₽</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <Button className="flex-1" size="lg">
-                    <Icon name="ShoppingCart" className="mr-2" size={20} />
-                    Заказать ингредиенты с доставкой
+                    <Icon name="Truck" className="mr-2" size={20} />
+                    Заказать блюдо с доставкой
                   </Button>
                   <Button variant="outline" className="flex-1" size="lg">
-                    <Icon name="MapPin" className="mr-2" size={20} />
-                    Самовывоз из магазина
+                    <Icon name="ChefHat" className="mr-2" size={20} />
+                    Забронировать в ресторане
                   </Button>
                 </div>
               </CardContent>
