@@ -246,7 +246,7 @@ const Index = () => {
         <div className="container mx-auto max-w-5xl">
           <div className="w-16 h-px bg-primary mb-6 mx-auto"></div>
           <h2 className="text-5xl font-bold text-center mb-16">Как это работает</h2>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-2 gap-16 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Icon name="ClipboardList" size={32} className="text-primary" />
@@ -256,17 +256,10 @@ const Index = () => {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Icon name="Sparkles" size={32} className="text-primary" />
+                <Icon name="ChefHat" size={32} className="text-primary" />
               </div>
-              <h3 className="text-2xl font-semibold mb-4">2. Получите рецепт</h3>
-              <p className="text-gray-600">Мы создадим уникальную концепцию блюда с пошаговым рецептом и списком продуктов</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Icon name="ShoppingBag" size={32} className="text-primary" />
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">3. Закажите ингредиенты</h3>
-              <p className="text-gray-600">Доставка на дом или самовывоз из нашего магазина свежих продуктов</p>
+              <h3 className="text-2xl font-semibold mb-4">2. Получите своё блюдо</h3>
+              <p className="text-gray-600">Мы создадим уникальное блюдо по вашему запросу и доставим его вам в Краснодаре</p>
             </div>
           </div>
         </div>
@@ -336,7 +329,7 @@ const Index = () => {
               </Button>
             )}
             <Button onClick={handleNext} size="lg" className="flex-1">
-              {currentSection < sections.length - 1 ? 'Далее' : 'Получить рецепт'}
+              {currentSection < sections.length - 1 ? 'Далее' : 'Получить своё блюдо'}
               <Icon name="ArrowRight" className="ml-2" size={20} />
             </Button>
           </div>
