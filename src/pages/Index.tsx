@@ -110,128 +110,6 @@ const Index = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const generateDish = () => {
-    const dishes = {
-      appetizer: [
-        {
-          name: 'Салат с киноа и печёными овощами',
-          description: 'Лёгкий и питательный салат с киноа, печёными баклажанами, цуккини, вялеными томатами и соусом из тахини с лимоном.',
-          image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800',
-          time: '25-30 минут',
-          portions: '2 порции',
-          price: 850
-        },
-        {
-          name: 'Брускетты с рикоттой и грушей',
-          description: 'Хрустящий хлеб с нежной рикоттой, карамелизированной грушей, мёдом и грецкими орехами.',
-          image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800',
-          time: '15-20 минут',
-          portions: '4 порции',
-          price: 750
-        },
-        {
-          name: 'Ассорти авторских тарталеток',
-          description: 'Пять изысканных мини-пирогов с разными начинками: с яблоком и брусникой, вишней, творогом и чёрной смородиной, черникой и шоколадным брауни с грецким орехом.',
-          image: 'https://cdn.poehali.dev/files/IMG_9625.jpeg',
-          time: '45-60 минут',
-          portions: '5 тарталеток',
-          price: 1200
-        }
-      ],
-      soup: [
-        {
-          name: 'Крем-суп из тыквы с кокосовым молоком',
-          description: 'Бархатистый суп из печёной тыквы с имбирём, кокосовым молоком и хрустящими тыквенными семечками.',
-          image: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=800',
-          time: '40-50 минут',
-          portions: '4 порции',
-          price: 650
-        },
-        {
-          name: 'Том Ям с креветками',
-          description: 'Острый тайский суп с креветками, лемонграссом, галангалом, грибами и кокосовым молоком.',
-          image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800',
-          time: '35-40 минут',
-          portions: '2 порции',
-          price: 980
-        }
-      ],
-      main: [
-        {
-          name: 'Филе лосося с картофельным муссом',
-          description: 'Нежное филе лосося на пару с воздушным картофельным муссом, спаржей и соусом из белого вина.',
-          image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800',
-          time: '35-40 минут',
-          portions: '2 порции',
-          price: 1450
-        },
-        {
-          name: 'Ризотто с белыми грибами',
-          description: 'Классическое итальянское ризотто с белыми грибами, пармезаном и трюфельным маслом.',
-          image: 'https://images.unsplash.com/photo-1476124369491-c4298c5e01c0?w=800',
-          time: '30-35 минут',
-          portions: '2 порции',
-          price: 890
-        },
-        {
-          name: 'Утиная грудка с ягодным соусом',
-          description: 'Сочная утиная грудка средней прожарки с соусом из брусники и ежевики, подаётся с пюре из батата.',
-          image: 'https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=800',
-          time: '45-50 минут',
-          portions: '2 порции',
-          price: 1350
-        }
-      ],
-      dessert: [
-        {
-          name: 'Панна-котта с малиновым кули',
-          description: 'Нежнейший итальянский десерт из сливок с ванилью и соусом из свежей малины.',
-          image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800',
-          time: '20 минут + 4 часа охлаждения',
-          portions: '4 порции',
-          price: 550
-        },
-        {
-          name: 'Шоколадный фондан с мороженым',
-          description: 'Горячий шоколадный кекс с жидкой серединкой, подаётся с ванильным мороженым.',
-          image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=800',
-          time: '25-30 минут',
-          portions: '2 порции',
-          price: 680
-        }
-      ]
-    };
-
-    let category = 'main';
-    if (formData.category === 'Закуска или салат') category = 'appetizer';
-    else if (formData.category === 'Суп') category = 'soup';
-    else if (formData.category === 'Десерт') category = 'dessert';
-
-    const categoryDishes = dishes[category as keyof typeof dishes];
-    
-    let selectedDish = categoryDishes[0];
-    
-    if (formData.mainIngredient === 'Рыба или морепродукты' && category === 'main') {
-      selectedDish = categoryDishes[0];
-    } else if (formData.mainIngredient === 'Овощи / Грибы / Растительный белок' && category === 'main') {
-      selectedDish = categoryDishes[1];
-    } else if (formData.mainIngredient === 'Птица (курица, индейка)' && category === 'main') {
-      selectedDish = categoryDishes[2];
-    } else if (formData.taste === 'Свежий, кислый, яркий' && category === 'appetizer') {
-      selectedDish = categoryDishes[0];
-    } else if (formData.taste === 'Сливочный, насыщенный' && category === 'appetizer') {
-      selectedDish = categoryDishes[1];
-    } else if (formData.taste === 'Сладкий, хрустящий' && category === 'appetizer') {
-      selectedDish = categoryDishes[2];
-    } else if (formData.cuisine?.includes('Азиатская') && category === 'soup') {
-      selectedDish = categoryDishes[1];
-    } else if (formData.taste === 'Сладкий, хрустящий' && category === 'dessert') {
-      selectedDish = categoryDishes[1];
-    }
-
-    return selectedDish;
-  };
-
   const handleNext = () => {
     if (currentSection < sections.length - 1) {
       setCurrentSection(currentSection + 1);
@@ -252,8 +130,6 @@ const Index = () => {
   };
 
   if (showResult) {
-    const dish = generateDish();
-    
     return (
       <div className="min-h-screen bg-white">
         <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-200 z-50">
@@ -273,25 +149,25 @@ const Index = () => {
 
             <div className="mb-12 animate-fade-in">
               <img 
-                src={dish.image} 
-                alt={dish.name} 
-                className="w-full rounded-lg shadow-lg object-cover h-96"
+                src="https://cdn.poehali.dev/files/IMG_9625.jpeg" 
+                alt="Ваше блюдо" 
+                className="w-full rounded-lg shadow-lg"
               />
             </div>
 
             <Card className="mb-8 animate-fade-in">
               <CardContent className="p-8">
-                <h3 className="text-3xl font-bold mb-4">{dish.name}</h3>
+                <h3 className="text-3xl font-bold mb-4">Ассорти авторских тарталеток</h3>
                 <p className="text-gray-600 mb-6">
-                  {dish.description}
+                  Пять изысканных мини-пирогов с разными начинками: с яблоком и брусникой, вишней, творогом и чёрной смородиной, черникой и шоколадным брауни с грецким орехом. Идеальное сочетание хрустящей корочки и нежных начинок.
                 </p>
 
                 <div className="border-t pt-6 mb-6">
                   <h4 className="text-xl font-semibold mb-4">Детали заказа</h4>
                   <div className="space-y-3 text-gray-600">
-                    <p>• Время приготовления: {dish.time}</p>
-                    <p>• Количество порций: {dish.portions}</p>
-                    <p>• Стоимость: {dish.price} ₽</p>
+                    <p>• Время приготовления: 45-60 минут</p>
+                    <p>• Количество порций: 5 тарталеток</p>
+                    <p>• Стоимость: 1 200 ₽</p>
                     <p>• Доставка по Краснодару: бесплатно при заказе от 1 500 ₽</p>
                   </div>
                 </div>
